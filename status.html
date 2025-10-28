@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mechajob - Cek Status Layanan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f9;
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header {
+            background-color: #2a6ed4;
+            color: black;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 90%;
+            border-bottom: 5px solid whitesmoke;
+            border-top: 5px solid whitesmoke;
+            position: relative;
+        }
+
+        .header .logo-link {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .header .logo {
+            height: 150px; 
+            width: auto;
+            vertical-align: middle;
+        }
+
+        .search-container {
+            background-color: #ffffff;
+            padding: 10px 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 85%;
+            max-width: 450px;
+            margin-top: 10px;
+            text-align: center;
+        }
+        
+        .search-container h2 {
+            color: #ff9800;
+            margin-bottom: 5px;
+            font-size: 28px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-group input {
+            width: 90%;
+            padding: 15px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            font-size: 18px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .submit-btn {
+            background-color: #2a6ed4;
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 70%;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #1a5ac9;
+        }
+
+        .status-result {
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #e3f2fd;
+            border-left: 5px solid #2a6ed4;
+            text-align: left;
+        }
+
+        /* Tombol kembali di bawah tanpa warna */
+        .back-link-bottom {
+            display: block;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            margin-top: 25px;
+            text-align: center;
+        }
+
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            border-top: 5px solid #ff9800;
+            margin-top: 20px;
+        }
+
+        .footer-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .footer h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #ff9800;
+        }
+
+        .footer p {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .thank-you {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #555;
+            font-size: 13px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <a href="halaman_utama.html" class="logo-link">
+            <img src="logoutama.png" alt="Logo Mechajob" class="logo">
+        </a>
+    </div>
+
+    <div class="search-container">
+        <h2>Cek Status Perbaikan</h2>
+        <p>Masukkan Nomor Tiket atau ID Pesanan Anda di bawah ini.</p>
+        
+        <form action="/proses_cek_status" method="GET">
+            <div class="form-group">
+                <label for="tiket_id">Nomor Tiket/Pesanan :</label>
+                <input type="text" id="tiket_id" name="tiket_id" required placeholder="Cth: MECHA-123456">
+            </div>
+            <button type="submit" class="submit-btn">Cek Status</button>
+        </form>
+        
+        <div id="statusResult" class="status-result">
+            <h4>Nomor Tiket: MECHA-123456</h4>
+            <p><strong>Status Saat Ini:</strong> Mekanik Budi sedang melakukan diagnosa pada motor.</p>
+            <p><strong>Mekanik Bertugas:</strong> Budi Santoso (ID: M001)</p>
+            <p><strong>Estimasi Selesai:</strong> 3 Jam dari sekarang.</p>
+        </div>
+
+        <!-- Tombol kembali di bawah -->
+        <a href="halaman_utama.html" class="back-link-bottom">&larr; Kembali ke Halaman Utama</a>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <h3>Hubungi Kami</h3>
+            <p>Email: Arif30091998@mechajob.id</p>
+            <p>Telepon: (021) 123-4567</p>
+            <p>Alamat Kantor: Jl. Mekanik Cepat No. 45, Jakarta Selatan</p>
+            <div class="thank-you">
+                Terima kasih telah memilih <b>Mechajob</b> untuk kebutuhan perbaikan kendaraan Anda.
+                <br>&copy; 2025 Mechajob. Hak Cipta Dilindungi.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
