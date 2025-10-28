@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mechajob Admin - Daftar Mekanik & Orderan</title>
+    <style>
+        /* =================================================== */
+        /* CSS BERSAMA DAN TATA LETAK ADMIN */
+        /* =================================================== */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f9;
+            color: #333;
+        }
+
+        /* Header Admin */
+        .header {
+            background-color: #2a6ed4; /* Biru Tua Mechajob */
+            color: white;
+            padding: 30px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 20px;
+        }
+
+        .logout-btn {
+            background-color: #ff9800;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .logout-btn:hover {
+            background-color: #f57c00;
+        }
+
+        /* Kontainer Utama */
+        .main-content {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .main-content h2 {
+            color: #2a6ed4;
+            border-bottom: 2px solid #ff9800;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* Pemisah konten */
+        .content-separator {
+            border: 0;
+            height: 1px;
+            background-color: #ddd;
+            margin: 40px 0;
+        }
+
+        /* =================================================== */
+        /* GAYA TABEL UMUM */
+        /* =================================================== */
+        .table-container {
+            overflow-x: auto; /* Membuat tabel responsif pada layar kecil */
+            width: 100%;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 700px; /* Minimal lebar tabel untuk mencegah terlalu sempit */
+        }
+
+        .data-table th, .data-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            font-size: 15px;
+        }
+
+        .data-table th {
+            background-color: #2a6ed4; /* Header Biru */
+            color: white;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .data-table tr:nth-child(even) {
+            background-color: #f9f9f9; /* Garis selang-seling */
+        }
+
+        .data-table tr:hover {
+            background-color: #eef4fb; /* Efek hover */
+        }
+
+        /* Gaya Status */
+        .status-badge {
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-weight: bold;
+            font-size: 12px;
+            color: white;
+            text-align: center;
+            display: inline-block;
+        }
+        
+        /* Status Mekanik */
+        .status-badge.aktif {
+            background-color: #4CAF50; /* Hijau */
+        }
+        
+        .status-badge.pending {
+            background-color: #ff9800; /* Oranye */
+        }
+
+        .status-badge.nonaktif {
+            background-color: #f44336; /* Merah */
+        }
+        
+        /* Status Orderan */
+        .status-badge.selesai {
+            background-color: #28a745; /* Hijau Tua */
+        }
+
+        .status-badge.proses {
+            background-color: #007bff; /* Biru */
+        }
+        
+        .status-badge.batal {
+            background-color: #dc3545; /* Merah Tua */
+        }
+
+
+        /* Gaya Tombol Aksi */
+        .action-btn {
+            padding: 6px 10px;
+            margin-right: 5px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: opacity 0.3s;
+        }
+
+        .btn-view {
+            background-color: #2196F3; /* Biru muda */
+            color: white;
+        }
+
+        .btn-delete {
+            background-color: #F44336; /* Merah */
+            color: white;
+        }
+        
+        .btn-view:hover, .btn-delete:hover {
+            opacity: 0.8;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Dashboard Admin - Mechajob</h1>
+        <a href="login.html" class="logout-btn">Logout</a>
+    </div>
+
+    <div class="main-content">
+        <h2>Daftar Mekanik Terdaftar</h2>
+
+        <div class="table-container">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nama Mekanik</th>
+                        <th>Email</th>
+                        <th>Spesialisasi</th>
+                        <th>Status</th>
+                        <th>Tanggal Daftar</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>M001</td>
+                        <td>Budi Santoso</td>
+                        <td>budi.s@mail.com</td>
+                        <td>Mesin & Transmisi</td>
+                        <td><span class="status-badge aktif">Aktif</span></td>
+                        <td>2024-09-01</td>
+                        <td>
+                            <button class="action-btn btn-view">Lihat</button>
+                            <button class="action-btn btn-delete">Hapus</button>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>M002</td>
+                        <td>Siti Rahayu</td>
+                        <td>siti.r@mail.com</td>
+                        <td>Kelistrikan Otomotif</td>
+                        <td><span class="status-badge pending">Pending</span></td>
+                        <td>2024-09-15</td>
+                        <td>
+                            <button class="action-btn btn-view">Lihat</button>
+                            <button class="action-btn btn-delete">Hapus</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>M003</td>
+                        <td>Agus Sutisna</td>
+                        <td>agus.s@mail.com</td>
+                        <td>Kaki-kaki & Rem</td>
+                        <td><span class="status-badge aktif">Aktif</span></td>
+                        <td>2024-10-05</td>
+                        <td>
+                            <button class="action-btn btn-view">Lihat</button>
+                            <button class="action-btn btn-delete">Hapus</button>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>M004</td>
+                        <td>Dewi Purnama</td>
+                        <td>dewi.p@mail.com</td>
+                        <td>Bodi & Cat</td>
+                        <td><span class="status-badge nonaktif">Nonaktif</span></td>
+                        <td>2024-10-10</td>
+                        <td>
+                            <button class="action-btn btn-view">Lihat</button>
+                            <button class="action-btn btn-delete">Hapus</button>
+                        </td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+        
+        <hr class="content-separator">
+
+        <h2>Daftar Orderan Terbaru</h2>
+
+        <div class="table-container">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>ID Order</th>
+                        <th>Layanan</th>
+                        <th>Pelanggan</th>
+                        <th>Mekanik Ditugaskan</th>
+                        <th>Harga (Rp)</th>
+                        <th>Status Order</th>
+                        <th>Tanggal Order</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>O001</td>
+                        <td>Ganti Oli & Filter</td>
+                        <td>Ahmad Zaki</td>
+                        <td>Budi Santoso (M001)</td>
+                        <td>350.000</td>
+                        <td><span class="status-badge selesai">Selesai</span></td>
+                        <td>2024-11-01</td>
+                        <td>
+                            <button class="action-btn btn-view">Detail</button>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>O002</td>
+                        <td>Perbaikan Rem Depan</td>
+                        <td>Rina Lestari</td>
+                        <td>Agus Sutisna (M003)</td>
+                        <td>850.000</td>
+                        <td><span class="status-badge proses">Diproses</span></td>
+                        <td>2024-11-03</td>
+                        <td>
+                            <button class="action-btn btn-view">Detail</button>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>O003</td>
+                        <td>Service Tune-up</td>
+                        <td>Joko Susilo</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td><span class="status-badge pending">Menunggu</span></td>
+                        <td>2024-11-04</td>
+                        <td>
+                            <button class="action-btn btn-view">Detail</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>O004</td>
+                        <td>Perbaikan AC Mobil</td>
+                        <td>Maria Chandra</td>
+                        <td>Siti Rahayu (M002)</td>
+                        <td>1.200.000</td>
+                        <td><span class="status-badge batal">Dibatalkan</span></td>
+                        <td>2024-11-05</td>
+                        <td>
+                            <button class="action-btn btn-view">Detail</button>
+                        </td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+
+</body>
+</html>
