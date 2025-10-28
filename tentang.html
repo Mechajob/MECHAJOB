@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mechajob - Tentang Kami</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f9;
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .header {
+            background-color:#2a6ed4;
+            color: white;
+            padding: 40px 20px; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            height: 70px;
+        }
+
+        .header .logo-link {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .header .logo {
+            height: 120px;
+            width: auto;
+            vertical-align: middle;
+        }
+
+        .main-content {
+            padding: 30px 20px 40px 20px;
+            flex-grow: 1;
+            max-width: 900px;
+            width: 90%;
+            margin: auto;
+        }
+
+        .main-content h2 {
+            text-align: center;
+            color: #2a6ed4;
+            font-size: 32px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #ff9800;
+            padding-bottom: 10px;
+        }
+        
+        .section-title {
+            color: #ff9800;
+            font-size: 24px;
+            margin-top: 10px;
+            margin-bottom: 15px;
+        }
+
+        .paragraph {
+            line-height: 1.8;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .values-grid {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .value-card {
+            background-color: #ffffff;
+            border-left: 5px solid #2a6ed4;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            flex: 1 1 250px;
+        }
+        
+        .value-card h4 {
+            color: #2a6ed4;
+            margin-top: 0;
+        }
+
+        /* Tombol kembali di bawah tanpa warna */
+        .back-link-bottom {
+            display: block;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            margin-top: 25px;
+            text-align: center;
+        }
+
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            border-top: 5px solid #ff9800;
+            margin-top: 20px;
+        }
+
+        .footer-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .footer h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #ff9800;
+        }
+
+        .footer p {
+            font-size: 14px;
+            margin-bottom: 5px;
+            line-height: 1.5;
+        }
+
+        .thank-you {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #555;
+            font-size: 13px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <a href="halaman_utama.html" class="logo-link">
+            <img src="logoutama.png" alt="Logo Mechajob" class="logo">
+        </a>
+    </div>
+
+    <div class="main-content">
+        <h2>Mengenal Lebih Jauh Mechajob</h2>
+
+        <p class="paragraph">
+            Mechajob didirikan dengan satu tujuan sederhana: merevolusi layanan perbaikan kendaraan. Kami percaya bahwa mendapatkan bantuan mekanik yang andal seharusnya tidak memerlukan waktu dan usaha yang berlebihan. Dari motor mogok di jalan hingga perawatan rutin di rumah, Mechajob hadir sebagai solusi cepat dan terpercaya.
+        </p>
+        
+        <p class="paragraph">
+            Kami adalah platform yang menghubungkan Anda langsung dengan jaringan <b>Mekanik Profesional Terverifikasi</b> terdekat. Kami memastikan setiap mekanik memiliki keterampilan dan peralatan yang dibutuhkan, didukung oleh sistem penilaian dan ulasan yang transparan.
+        </p>
+
+        <h3 class="section-title">Misi Kami</h3>
+        <p class="paragraph">
+            Menjadi platform layanan mekanik <i>on-demand</i> terbesar di Asia Tenggara, memberikan <b>Kecepatan</b>, <b>Keandalan</b>, dan <b>Kenyamanan</b> bagi setiap pemilik kendaraan, sekaligus meningkatkan kesejahteraan para mekanik mitra kami.
+        </p>
+        
+        <h3 class="section-title">Nilai-Nilai Inti</h3>
+        <div class="values-grid">
+            <div class="value-card">
+                <h4>1. Transparansi</h4>
+                <p>Harga yang jelas, suku cadang yang terperinci, dan ulasan yang jujur. Tidak ada biaya tersembunyi.</p>
+            </div>
+            <div class="value-card">
+                <h4>2. Kualitas</h4>
+                <p>Hanya mekanik bersertifikat dan teruji yang terdaftar. Kami menjamin kualitas setiap perbaikan.</p>
+            </div>
+            <div class="value-card">
+                <h4>3. Aksesibilitas</h4>
+                <p>Layanan yang dapat diakses 24/7, memastikan bantuan selalu tersedia kapan pun Anda membutuhkannya.</p>
+            </div>
+        </div>
+
+        <!-- Tombol kembali di bawah -->
+        <a href="halaman_utama.html" class="back-link-bottom">&larr; Kembali ke Halaman Utama</a>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <h3>Hubungi Kami</h3>
+            <p>Email: Arif30091998@mechajob.id</p>
+            <p>Telepon: (021) 123-4567</p>
+            <p>Alamat Kantor: Jl. Mekanik Cepat No. 45, Jakarta Selatan</p>
+            <div class="thank-you">
+                Terima kasih telah memilih <b>Mechajob</b> untuk kebutuhan perbaikan kendaraan Anda.
+                <br>&copy; 2025 Mechajob. Hak Cipta Dilindungi.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
