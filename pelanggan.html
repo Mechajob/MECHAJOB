@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mechajob - Pesan Perbaikan Motor</title>
+    <style>
+        /* Gaya Dasar Sesuai Tema Mechajob */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        /* Header Sederhana */
+        .header {
+            background-color: #2a6ed4; /* Biru gelap */
+            color: white;
+            width: 100%;
+            text-align: center;
+            padding: 15px 0;
+            position: fixed;
+            top: 0;
+            z-index: 5;
+        }
+
+        /* Kontainer Formulir */
+        .form-container {
+            background-color: #ffffff;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 75%;
+            max-width: 550px; /* Sedikit lebih lebar untuk menampung banyak info */
+            margin: 80px auto 30px auto; /* Jarak dari fixed header + margin bawah */
+        }
+
+        .form-container h2 {
+            text-align: center;
+            color: #ff9800; /* Oranye untuk judul utama pelanggan */
+            margin-bottom: 5px;
+            font-size: 26px;
+        }
+        
+        .form-container p.subtitle {
+            text-align: center;
+            color: #555;
+            margin-bottom: 25px;
+            font-size: 15px;
+        }
+
+        /* Gaya Input */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* Gaya Tombol */
+        .submit-btn {
+            background-color: #2a6ed4; /* Biru gelap */
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #1a5ac9;
+        }
+
+        /* Tautan */
+        .back-link {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .back-link a {
+            color: #2a6ed4;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Mechajob - Pesan Layanan Motor</h1>
+    </div>
+
+    <div class="form-container">
+        <h2>Pesan Perbaikan Motor Anda</h2>
+        <p class="subtitle">Mohon isi detail di bawah agar kami bisa mengirim mekanik yang tepat ke lokasi Anda.</p>
+        
+        <form action="/proses_pesan_perbaikan_motor" method="POST">
+            
+            <h3>Detail Kontak</h3>
+            <div class="form-group">
+                <label for="nama">Nama Pelanggan</label>
+                <input type="text" id="nama" name="nama" required placeholder="Nama Anda">
+            </div>
+
+            <div class="form-group">
+                <label for="telepon">Nomor Telepon (Aktif)</label>
+                <input type="tel" id="telepon" name="telepon" required placeholder="Cth: 081234567890">
+            </div>
+            
+            <h3>Detail Motor</h3>
+            <div class="form-group">
+                <label for="jenis_motor">Jenis Motor</label>
+                <select id="jenis_motor" name="jenis_motor" required>
+                    <option value="">Pilih Jenis</option>
+                    <option value="matic">Skuter Matic (Vario, Beat, NMAX, dll)</option>
+                    <option value="bebek">Motor Bebek (Supra, Jupiter, dll)</option>
+                    <option value="sport">Motor Sport (Ninja, R15, CBR, dll)</option>
+                    <option value="lainnya">Lainnya</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="merk">Merk dan Tipe Motor</label>
+                <input type="text" id="merk" name="merk" required placeholder="Cth: Honda Beat 2020">
+            </div>
+
+            <h3>Detail Masalah & Lokasi</h3>
+            
+            <div class="form-group">
+                <label for="masalah">Masalah yang Dialami (Pilih salah satu)</label>
+                <select id="masalah" name="masalah" required>
+                    <option value="">Pilih Masalah Utama</option>
+                    <option value="mogok">Motor Mogok / Tidak Bisa Hidup</option>
+                    <option value="ban_bocor">Ban Bocor / Pecah</option>
+                    <option value="kelistrikan">Masalah Kelistrikan (Lampu, Aki)</option>
+                    <option value="rem">Masalah Rem</option>
+                    <option value="tuneup">Perawatan Rutin / Tune Up</option>
+                    <option value="lainnya">Masalah Lainnya</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="deskripsi">Deskripsi Masalah Lebih Lanjut</label>
+                <textarea id="deskripsi" name="deskripsi" rows="4" required 
+                    placeholder="Contoh: Motor tidak mau distarter setelah kehujanan. Suara mesin kasar."></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="lokasi">Alamat Lengkap / Lokasi Sekarang</label>
+                <input type="text" id="lokasi" name="lokasi" required placeholder="Cth: Jl. Anggrek No. 12, Samping Indomaret">
+            </div>
+
+
+            <button type="submit" class="submit-btn">Cari Mekanik Terdekat Sekarang!</button>
+        </form>
+
+        <p class="back-link"><a href="index.html">Kembali ke Halaman Utama</a></p>
+    </div>
+
+</body>
+</html>
