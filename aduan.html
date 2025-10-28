@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mechajob - Kontak Aduan & Dukungan</title>
+    <style>
+        /* Gaya Dasar Sesuai Tema Mechajob */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        /* --- Header dengan Logo di Tengah --- */
+        .header {
+            background-color: #2a6ed4; /* Biru gelap */
+            color: white;
+            width: 100%;
+            padding: 10px 0;
+            display: flex;
+            justify-content: center; /* Logo di tengah */
+            align-items: center;
+            position: relative;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .logo-header {
+            height: 100px;
+            width: auto;
+        }
+
+        /* --- Kontainer Formulir --- */
+        .form-container {
+            background-color: #ffffff;
+            padding: 20px 35px;
+            border-radius: 5px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 500px;
+            margin-top: 20px;
+        }
+
+        .form-container h2 {
+            text-align: center;
+            color: #2a6ed4;
+            margin-bottom: 5px;
+            font-size: 26px;
+        }
+
+        .form-container p.subtitle {
+            text-align: center;
+            color: #555;
+            margin-bottom: 25px;
+            font-size: 15px;
+        }
+
+        /* Gaya Input */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        /* Tombol Kirim */
+        .submit-btn {
+            background-color: #ff9800; 
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #f57c00;
+        }
+
+        /* Tautan Kembali */
+        .back-link {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .back-link a {
+            color: #2a6ed4;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header dengan logo di tengah -->
+    <div class="header">
+        <a href="halaman_utama.html">
+            <img src="logoutama.png" alt="Logo Mechajob" class="logo-header">
+        </a>
+    </div>
+
+    <!-- Formulir Aduan -->
+    <div class="form-container">
+        <h2>Hubungi Tim Dukungan Kami</h2>
+        <p class="subtitle">Mohon isi detail di bawah. Kami akan merespons dalam waktu 1x24 jam kerja.</p>
+
+        <form action="/proses_aduan_pelanggan" method="POST">
+            <div class="form-group">
+                <label for="nama">Nama Lengkap Anda</label>
+                <input type="text" id="nama" name="nama" required placeholder="Nama Anda (Pelanggan/Mekanik)">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Balasan</label>
+                <input type="email" id="email" name="email" required placeholder="Masukkan email aktif Anda">
+            </div>
+            
+            <div class="form-group">
+                <label for="subjek">Subjek Aduan</label>
+                <select id="subjek" name="subjek" required>
+                    <option value="">Pilih Kategori</option>
+                    <option value="keluhan_mekanik">Keluhan terhadap Mekanik</option>
+                    <option value="pertanyaan_umum">Pertanyaan Umum/Informasi</option>
+                    <option value="masukan">Masukan/Saran untuk Aplikasi</option>
+                    <option value="masalah_transaksi">Masalah Pembayaran/Transaksi</option>
+                    <option value="lainnya">Lainnya</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="deskripsi">Detail Pesan/Aduan</label>
+                <textarea id="deskripsi" name="deskripsi" rows="8" required 
+                    placeholder="Jelaskan masalah Anda secara rinci, termasuk Nomor Pesanan/ID Mekanik (jika ada)."></textarea>
+            </div>
+            
+            <button type="submit" class="submit-btn">Kirim Aduan</button>
+        </form>
+
+        <p class="back-link"><a href="layanan.html">Kembali ke Pilihan Layanan</a></p>
+    </div>
+
+</body>
+</html>
